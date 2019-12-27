@@ -4,6 +4,8 @@
 
 Running this example with Terraform will create the `Extract Processor Lambda` function only, with the necessary dependencies of an AWS API Gateway and S3 bucket along with the necessary permissions.
 
+![Scenario Architecture](./architecture.png)
+
 ## Usage
 
 Make sure that you are in this directory (not the root directory) before executing any of the commands below.

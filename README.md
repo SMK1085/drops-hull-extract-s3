@@ -62,6 +62,7 @@ This repository contains various samples to get you started quickly with deployi
 | -------- | ----------- |
 | [`extract-requester-only`](./tf/examples/extract-requester-only/README.md) | This scenario deploys a Lambda function which can request extracts from the Hull platform along with a CloudWatch scheduled event, so it can be executed on the defined schedule. |
 | [`extract-processor-only`](./tf/examples/extract-processor-only/README.md) | This scenario deploys a Lambda function which can process extracts from the Hull platform along with the required API Gateway and S3 bucket. It also assigns IAM permissions to make all components work with each other. |
+|[`extract-requester-w-processor`](./tf/examples/extract-requester-w-processor/README.md) | This scenario deploys a fully functioning combination of a extract requester Lambda along with a extract processor function, including CloudWatch scheduled event, API Gateway and S3 bucket. It also assigns IAM permissions to make all components work with each other. |
 
 Please refer to the respective READMEs of each scenario to learn how to deploy the scenario using Terraform. All code examples are configurable by adjusting the `.tfvars` files to your needs. All variables are described in the corresponding `variables.tf` file.
 
