@@ -1,6 +1,6 @@
 # drops-hull-extract-s3
 
-[![License](https://img.shields.io/github/license/smk1085/drops-hull-extract-s3.svg?style=flat-square)](https://github.com/smk1085/drops-hull-extract-s3/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/smk1085/drops-hull-extract-s3#can-i-contribute-code) [![Code of conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/smk1085/drops-hull-extract-s3/blob/master/CODE_OF_CONDUCT.md)
+[![License](https://img.shields.io/github/license/SMK1085/drops-hull-extract-s3.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3#can-i-contribute-code) [![Code of conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/CODE_OF_CONDUCT.md)
 
 A DROPS for requesting an extract from Hull and uploading it to AWS S3.
 
@@ -48,36 +48,55 @@ To configure the behavior, the following environment variables are available:
 
 Both Lambda functions come with logging, using the [logging library](https://docs.python.org/3/library/logging.html) from Python. If no log level is specified, the logger assumes a production environment and the log level will default to `ERROR`. To trace problems down, it is recommended to set the log level to `INFO` which will cause the functions to log every step with the relevant configuration. For further details about the output and how to retrieve the logs using CloudWatch, please refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/python-logging.html).
 
+## Deployment using Terraform
+
+### Requirements
+
+Make sure that you have Terraform v0.12.0 or higher installed on your computer. You can download the latest version from the [Terraform download page](https://www.terraform.io/downloads.html).
+
+### Examples
+
+This repository contains various samples to get you started quickly with deploying everything to AWS. See the [Terraform examples folder](./tf/examples) for common quickstart scenarios:
+
+| Scenario | Description |
+| -------- | ----------- |
+| [`extract-requester-only`](./tf/examples/extract-requester-only/README.md) | This scenario deploys a Lambda function which can request extracts from the Hull platform along with a CloudWatch scheduled event, so it can be executed on the defined schedule. |
+| [`extract-processor-only`](./tf/examples/extract-processor-only/README.md) | This scenario deploys a Lambda function which can process extracts from the Hull platform along with the required API Gateway and S3 bucket. It also assigns IAM permissions to make all components work with each other. |
+|[`extract-requester-w-processor`](./tf/examples/extract-requester-w-processor/README.md) | This scenario deploys a fully functioning combination of a extract requester Lambda along with a extract processor function, including CloudWatch scheduled event, API Gateway and S3 bucket. It also assigns IAM permissions to make all components work with each other. |
+|[`multi-extract-requesters-w-processors`](./tf/examples/multi-extract-requesters-w-processors/README.md) | This scenario deploys a fully functioning combination of two extract requester Lambdas along with two extract processor functions, including CloudWatch scheduled events, API Gateway and S3 bucket. It also assigns IAM permissions to make all components work with each other. You would typically deploy this scenario if you want to process both, user and account extracts from Hull. |
+
+Please refer to the respective READMEs of each scenario to learn how to deploy the scenario using Terraform. All code examples are configurable by adjusting the `.tfvars` files to your needs. All variables are described in the corresponding `variables.tf` file.
+
 ## Inspiration
 
 - [terraform_aws_lambda_python](https://github.com/ruzin/terraform_aws_lambda_python)
 - [blog-lambda-unit-testing-python](https://github.com/binxio/blog-lambda-unit-testing-python)
-- [Using DROPS to improve CX](https://medium.com/@smaschek85)
+- [Introducing DROPS](https://medium.com/@smaschek85/introducing-drops-to-improve-dx-and-cx-for-saas-39a20f6e0f40)
 
 ## Credits
 
 This project is authored and maintained by Sven Maschek ([@smaschek85](https://medium.com/@smaschek85) / [@svenmaschek](https://twitter.com/svenmaschek)).
 
-Thank you to all [contributors](https://github.com/smk1085/drops-hull-extract-s3/graphs/contributors).
+Thank you to all [contributors](https://github.com/SMK1085/drops-hull-extract-s3/graphs/contributors).
 
 ## License
 
-Open-source under [MIT License](https://github.com/smk1085/drops-hull-extract-s3/blob/master/LICENSE).
+Open-source under [MIT License](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/LICENSE).
 
 ## FAQ
 
 ### Uh oh, something went wrong!
 
-Sorry about that. Please submit a bug report using the [GitHub issue tracker](https://github.com/smk1085/drops-hull-extract-s3/issues).
+Sorry about that. Please submit a bug report using the [GitHub issue tracker](https://github.com/SMK1085/drops-hull-extract-s3/issues).
 
 ### I wish something was different…
 
-Keen to hear all ideas! Create an enhancement request using the [GitHub issue tracker](https://github.com/smk1085/drops-hull-extract-s3/issues).
+Keen to hear all ideas! Create an enhancement request using the [GitHub issue tracker](https://github.com/SMK1085/drops-hull-extract-s3/issues).
 
 ### Can I contribute code?
 
-Yes please! See [CONTRIBUTING.md](./CONTRIBUTING.md).
+Yes please! See [CONTRIBUTING.md](./CONTRIBUTING.md) and [DEVELOPING.md](./DEVELOPING.md).
 
 ### My question isn't answered :(
 
-Ask away using the [GitHub issue tracker](https://github.com/smk1085/drops-hull-extract-s3/issues).
+Ask away using the [GitHub issue tracker](https://github.com/SMK1085/drops-hull-extract-s3/issues).

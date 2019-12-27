@@ -127,3 +127,15 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# Terraform stuff
+.terraform
+test.tfvars
+*.tfstate*
+*.plan
+*.zip
+tf/modules/lambda-python/env-*
+tf/modules/lambda-python/dir_hash_zip
+
+# Apple stuff
+.DS_Store
