@@ -37,10 +37,12 @@ variable "lambda_requester_callbackurl" {
 
 variable "lambda_requester_esquery" {
     description = "The ElasticSearch query to match objects against which shall be extracted. Note: This must be valid stringified JSON."
+    type        = any
 }
 
 variable "lambda_requester_fields" {
-    description = "The list of fields or attributes to fetch for the matching objects. Note: This must be a valid stringified JSON array."
+    description = "The list of fields or attributes to fetch for the matching objects. Note: This must be a valid JSON serializable list."
+    type        = list(string)
 }
 
 

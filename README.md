@@ -48,19 +48,28 @@ To configure the behavior, the following environment variables are available:
 
 Both Lambda functions come with logging, using the [logging library](https://docs.python.org/3/library/logging.html) from Python. If no log level is specified, the logger assumes a production environment and the log level will default to `ERROR`. To trace problems down, it is recommended to set the log level to `INFO` which will cause the functions to log every step with the relevant configuration. For further details about the output and how to retrieve the logs using CloudWatch, please refer to the [AWS documentation](https://docs.aws.amazon.com/lambda/latest/dg/python-logging.html).
 
-## Inspiration
-
-- [terraform_aws_lambda_python](https://github.com/ruzin/terraform_aws_lambda_python)
-- [blog-lambda-unit-testing-python](https://github.com/binxio/blog-lambda-unit-testing-python)
-- [Using DROPS to improve CX](https://medium.com/@smaschek85)
-
 ## Deployment using Terraform
 
 ### Requirements
 
 Make sure that you have Terraform v0.12.0 or higher installed on your computer. You can download the latest version from the [Terraform download page](https://www.terraform.io/downloads.html).
 
+### Examples
 
+This repository contains various samples to get you started quickly with deploying everything to AWS. See the [Terraform examples folder](./tf/examples) for common quickstart scenarios:
+
+| Scenario | Description |
+| -------- | ----------- |
+| [`extract-requester-only`](./tf/examples/extract-requester-only/README.md) | This scenario deploys a Lambda function which can request extracts from the Hull platform along with a CloudWatch scheduled event, so it can be executed on the defined schedule. |
+| [`extract-processor-only`](./tf/examples/extract-processor-only/README.md) | This scenario deploys a Lambda function which can process extracts from the Hull platform along with the required API Gateway and S3 bucket. It also assigns IAM permissions to make all components work with each other. |
+
+Please refer to the respective READMEs of each scenario to learn how to deploy the scenario using Terraform. All code examples are configurable by adjusting the `.tfvars` files to your needs. All variables are described in the corresponding `variables.tf` file.
+
+## Inspiration
+
+- [terraform_aws_lambda_python](https://github.com/ruzin/terraform_aws_lambda_python)
+- [blog-lambda-unit-testing-python](https://github.com/binxio/blog-lambda-unit-testing-python)
+- [Introducing DROPS](https://medium.com/@smaschek85/introducing-drops-to-improve-dx-and-cx-for-saas-39a20f6e0f40)
 
 ## Credits
 
