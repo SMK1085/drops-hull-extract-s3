@@ -1,5 +1,9 @@
 # CHANGLEOG
 
+## v1.1.1
+
+- Minor housekeeping items, added CI/CD and codecov badges
+
 ## v1.1.0
 
 - Improved docs
