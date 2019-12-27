@@ -61,3 +61,20 @@ Generate HTML report for coverage
 ```bash
 coverage html
 ```
+
+## Git Flow
+
+This project follows [Vincent Driessen's branching model](https://nvie.com/posts/a-successful-git-branching-model/) and uses Git Flow.
+Please make sure that you understand the model and commit to the proper branch.
+If you have any questions, [open a ticket](https://github.com/SMK1085/drops-hull-extract-s3/issues/new) and discuss it with the maintainers.
+
+## Terraform
+
+DROPS are built by providing examples for Terraform. This ensures that scenarios are almost instantly deployable to AWS with a few tweaks in the variables. If you want to add a new scenario, please make sure to follow the steps below:
+
+1. [Open a ticket](https://github.com/SMK1085/drops-hull-extract-s3/issues/new) to discuss the new scenario.
+2. Create a new folder with the scenario slug under `tf/examples/`
+3. Make sure that you have some best practice code splitting in Terraform files. If you are unsure, please ask in the ticket.
+4. Test your Terraform code and make sure that it actually works.
+
+**Important**: All Terraform code needs to target version 0.12 or higher. If you submit code targeting an older version, the PR will be rejected.

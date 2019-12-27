@@ -93,7 +93,7 @@ Keen to hear all ideas! Create an enhancement request using the [GitHub issue tr
 
 ### Can I contribute code?
 
-Yes please! See [CONTRIBUTING.md](./CONTRIBUTING.md).
+Yes please! See [CONTRIBUTING.md](./CONTRIBUTING.md) and [DEVELOPING.md](./DEVELOPING.md).
 
 ### My question isn't answered :(
 
