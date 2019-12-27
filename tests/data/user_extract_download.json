@@ -1,0 +1,3 @@
+{ "id": "ad293e1114784779a8d8f366e33b257a", "email": "test1@hull.io", "name": "Test User 1", "segment_ids": ["5b5f8c2bf5ab082f7600191a"]}
+{ "id": "97be46f02c1b4d6089f2785756613372", "email": "test2@hull.io", "name": "Test User 2", "segment_ids": ["5b5f8c2bf5ab082f7600191a", "5b3823a64575f5c947017005"]}
+{ "id": "a1b6f60b10274eacb2903db971df0126", "email": "test3@hull.io", "name": "Test User 3", "segment_ids": ["5b5f8c2bf5ab082f7600191a", "5b3823a64575f5c947017005"], "external_id": "ext-test1"}
