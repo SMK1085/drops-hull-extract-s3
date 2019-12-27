@@ -25,7 +25,7 @@ def handler(event, context):
     logger.info("Hull extract requester invoked with event: %s", event)
 
     # Parse the environment variables
-    logger.info("Parsing configuration from environment variables")
+    logger.info("Parsing configuration from environment variables...")
 
     HULL_ORG = os.getenv("HULL_ORG_ID")
     CONNECTOR_ID = os.getenv("HULL_CONNECTOR_ID")
