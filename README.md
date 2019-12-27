@@ -1,6 +1,6 @@
 # drops-hull-extract-s3
 
-[![License](https://img.shields.io/github/license/smk1085/drops-hull-extract-s3.svg?style=flat-square)](https://github.com/smk1085/drops-hull-extract-s3/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/smk1085/drops-hull-extract-s3#can-i-contribute-code) [![Code of conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/smk1085/drops-hull-extract-s3/blob/master/CODE_OF_CONDUCT.md)
+[![License](https://img.shields.io/github/license/SMK1085/drops-hull-extract-s3.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3#can-i-contribute-code) [![Code of conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/CODE_OF_CONDUCT.md)
 
 A DROPS for requesting an extract from Hull and uploading it to AWS S3.
 
@@ -54,25 +54,33 @@ Both Lambda functions come with logging, using the [logging library](https://doc
 - [blog-lambda-unit-testing-python](https://github.com/binxio/blog-lambda-unit-testing-python)
 - [Using DROPS to improve CX](https://medium.com/@smaschek85)
 
+## Deployment using Terraform
+
+### Requirements
+
+Make sure that you have Terraform v0.12.0 or higher installed on your computer. You can download the latest version from the [Terraform download page](https://www.terraform.io/downloads.html).
+
+
+
 ## Credits
 
 This project is authored and maintained by Sven Maschek ([@smaschek85](https://medium.com/@smaschek85) / [@svenmaschek](https://twitter.com/svenmaschek)).
 
-Thank you to all [contributors](https://github.com/smk1085/drops-hull-extract-s3/graphs/contributors).
+Thank you to all [contributors](https://github.com/SMK1085/drops-hull-extract-s3/graphs/contributors).
 
 ## License
 
-Open-source under [MIT License](https://github.com/smk1085/drops-hull-extract-s3/blob/master/LICENSE).
+Open-source under [MIT License](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/LICENSE).
 
 ## FAQ
 
 ### Uh oh, something went wrong!
 
-Sorry about that. Please submit a bug report using the [GitHub issue tracker](https://github.com/smk1085/drops-hull-extract-s3/issues).
+Sorry about that. Please submit a bug report using the [GitHub issue tracker](https://github.com/SMK1085/drops-hull-extract-s3/issues).
 
 ### I wish something was different…
 
-Keen to hear all ideas! Create an enhancement request using the [GitHub issue tracker](https://github.com/smk1085/drops-hull-extract-s3/issues).
+Keen to hear all ideas! Create an enhancement request using the [GitHub issue tracker](https://github.com/SMK1085/drops-hull-extract-s3/issues).
 
 ### Can I contribute code?
 
@@ -80,4 +88,4 @@ Yes please! See [CONTRIBUTING.md](./CONTRIBUTING.md).
 
 ### My question isn't answered :(
 
-Ask away using the [GitHub issue tracker](https://github.com/smk1085/drops-hull-extract-s3/issues).
+Ask away using the [GitHub issue tracker](https://github.com/SMK1085/drops-hull-extract-s3/issues).
