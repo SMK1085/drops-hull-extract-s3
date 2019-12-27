@@ -1,0 +1,7 @@
+boto3
+requests
+moto
+pytest
+python-dotenv
+pylint
+coverage

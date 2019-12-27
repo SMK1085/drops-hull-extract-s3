@@ -323,3 +323,51 @@ class ExtractProcessorTests(unittest.TestCase):
             'statusCode': 200,
             'body': json.dumps("Successfully processed extract.")
         }
+
+    @responses.activate
+    def test_jsonextract_is_successful(self):
+        # Configure the mock to fake the get request
+        download_content_path = os.path.join(os.path.dirname(__file__),"data/user_extract_download.json")
+        with open(download_content_path, 'r') as download_file:
+            res_body = download_file.read()
+            responses.reset()
+            responses.add(responses.GET, "https://somewhereinthecloud.hull.net/extracts/user_report/test.json", body=res_body)
+        
+        # Now let's fake S3 using moto
+        conn = boto3.resource('s3', region_name='us-east-1')
+        s3clnt = boto3.client('s3', region_name='us-east-1')
+        # pylint: disable=no-member
+        conn.create_bucket(Bucket="hull-se-test")
+        
+        # Minimum env config
+        os.environ["S3_BUCKET"] = "hull-se-test"
+        os.environ["S3_SINGLEFILE"] = "my-jsonextract"
+        os.environ["S3_FILE_FORMAT"] = "json"
+        os.environ['HULL_EXPORT_FIELDS'] = json.dumps(["id", "email", "name", "external_id", "segment_ids"])
+
+        # Compose the event body
+        body = None
+        file_path = os.path.join(os.path.dirname(__file__),"data/user_extract.json")
+        with open(file_path, "r") as outfile:
+            reqObj = json.load(outfile)
+            body = reqObj
+
+        # Invoke the handler
+        resp = extract_processor.handler(api_gateway_event(body), None)
+
+        # Verify assertions
+        assert None != s3clnt.get_object(Bucket="hull-se-test", Key="my-jsonextract.json")
+        
+        with tempfile.TemporaryDirectory() as tmpdir:
+            tmp_path = os.path.join(tmpdir, "my-userextract.csv")
+            s3clnt.download_file("hull-se-test", "my-jsonextract.json", tmp_path)
+            with open(tmp_path, 'r') as json_file:
+                data = json.load(json_file)
+                assert 3 == len(data)
+            
+            os.remove(tmp_path)
+        
+        assert resp == {
+            'statusCode': 200,
+            'body': json.dumps("Successfully processed extract.")
+        }

@@ -1,0 +1,43 @@
+version: 2
+jobs:
+    working_directory: ~/drops-hull-extract-s3
+    docker:
+        - image: circleci/python:3.7.5
+    steps:
+        - checkout # checkout source code to working directory
+        - run: sudo chown -R circleci:circleci /usr/local/bin
+        - run: sudo chown -R circleci:circleci /usr/local/lib/python3.7/site-packages
+        - restore_cache:  # ensure this step occurs *before* installing dependencies
+            key: deps9-{{ .Branch }}-{{ checksum "requirements.txt" }}
+        - run:
+            command: | 
+                sudo pip install virtualenv
+                virtualenv venv
+                source venv/bin/activate
+                pip install boto3
+                pip install requests
+                pip install moto
+                pip install pytest
+                pip install python-dotenv
+                pip install pylint
+                pip install coverage
+                pip install codecov
+
+        - save_cache:
+            key: deps9-{{ .Branch }}-{{ checksum "requirements.txt" }}
+            paths:
+                - ".venv"
+                - "/usr/local/bin"
+                - "/usr/local/lib/python3.6/site-packages"
+        - run:
+            command: |
+                source venv/bin/activate
+                coverage run -m pytest -vv -s tests/
+                coverage xml
+                codecov
+        
+        - store_test_results:
+            path: test-results
+        - store_artifacts:
+            path: test-results
+            destination: tr1
