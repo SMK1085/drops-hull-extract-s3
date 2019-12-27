@@ -1,6 +1,7 @@
 # drops-hull-extract-s3
 
 [![CircleCI](https://circleci.com/gh/SMK1085/drops-hull-extract-s3.svg?style=svg)](https://circleci.com/gh/SMK1085/drops-hull-extract-s3)
+[![codecov](https://codecov.io/gh/SMK1085/drops-hull-extract-s3/branch/master/graph/badge.svg)](https://codecov.io/gh/SMK1085/drops-hull-extract-s3)
 [![License](https://img.shields.io/github/license/SMK1085/drops-hull-extract-s3.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/LICENSE) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3#can-i-contribute-code) [![Code of conduct](https://img.shields.io/badge/code%20of-conduct-ff69b4.svg?style=flat-square)](https://github.com/SMK1085/drops-hull-extract-s3/blob/master/CODE_OF_CONDUCT.md)
 
 A DROPS for requesting an extract from Hull and uploading it to AWS S3.
