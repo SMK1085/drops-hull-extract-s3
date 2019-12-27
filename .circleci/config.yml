@@ -1,6 +1,6 @@
 version: 2
 jobs:
-    - build:
+    build:
         working_directory: ~/drops-hull-extract-s3
         docker:
             - image: circleci/python:3.7.5
