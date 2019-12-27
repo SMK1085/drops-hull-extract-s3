@@ -34,6 +34,7 @@ The purpose of this Lambda function is to download the extracted file made avail
 This function requires a configured API Gateway method and access to the S3 bucket to upload the resulting files.
 
 To configure the behavior, the following environment variables are available:
+
 | Variable | Description | Notes |
 | -------- | ----------- | ----- |
 |`S3_BUCKET`| The name of the S3 bucket. | Note that the function needs to have permissions to at least upload files. |
